@@ -1,0 +1,33 @@
+<div class="row">
+
+    <div class="col-lg-3">
+        Search: <input ng-model="query.name">
+        <select ng-model="orderProp">
+            <option value="name">Alphabetical</option>
+            <option value="age">Newest</option>
+        </select>
+
+        <li ng-repeat="phone3 in panier">
+
+            {{phone3.name}} : {{phone3.count}}
+            <button ng-click="deletePhone(phone3)" type="button" class="btn btn-warning">Remove</button>
+            <it-basket-element-counter phone-object="phone3"
+                                       remove-phone="removeSelected(phoneToRemove)"></it-basket-element-counter>
+        </li>
+
+        <button ng-click="deletePhones()" type="button" class="btn btn-danger">Remove All</button>
+    </div>
+
+    <div class="col-lg-9">
+        <ul class="phones">
+            <li ng-repeat="phone2 in phones2 | filter:query | orderBy:orderProp" class="thumbnail">
+
+                <div tuto-phone phone-object="phone2" custom-click="focusinControl(selectedPhone)">
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
